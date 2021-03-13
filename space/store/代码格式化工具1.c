@@ -96,8 +96,8 @@ void handle(FILE *fp)
 			if (strcmp(sd, "else") == 0)
 			{
 				for (int i = 0; isspace(*(str + i)) || *(str + i) == '}' || i < l1; i++);
-				for (int i = 0; *(str + i) != '\n'; i++)
-					el[i] = *(str + i);
+					for (int i = 0; *(str + i) != '\n'; i++)
+						el[i] = *(str + i);
 				int l2 = strlen(el);
 				for (int i = l2 - 1; i >= 0; i--)
 				{
@@ -139,8 +139,9 @@ void handle(FILE *fp)
 void get_first_word(char *str)
 {
 	int begin, end;
-	for (begin = 0; isspace(*(str + begin)); begin++);
-	for (end = begin; !isspace(*(str + end)); end++);
+	int len = strlen(str);
+	for (begin = 0; isspace(*(str + begin)) && begin < len; begin++);
+	for (end = begin; !isspace(*(str + end)) && end < len; end++);
 	*(str + end) = '\0';
 	for (; *(str + begin) != '\0'; str++)
 		*str = *(str + begin);
