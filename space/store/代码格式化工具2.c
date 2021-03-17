@@ -5,7 +5,6 @@
 #define LEN 1001
 
 void handle(FILE *);
-char *get_space(char *, char *);
 void get_first_word(char *);
 void get_second_word(char *str);
 char get_last_character(char *, int);
@@ -154,27 +153,6 @@ void handle(FILE *fp)
 		printf("%s", str);
 		memset(str, 0, sizeof(str));
 	}
-}
-
-char *get_space(char *str, char *space)
-{
-	int len = (int)strlen(str);
-
-	memset(space, 0, sizeof(space));
-	for (int i = 0, j = 0; i < len; i++)
-	{
-		if (isspace(str[i]))
-		{
-			space[j] = str[i];
-			j++;
-		}
-		else
-		{
-			space[j + 1] = '\0';
-			break;
-		}
-	}
-	return space;
 }
 
 void get_first_word(char *str)

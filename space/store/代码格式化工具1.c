@@ -39,7 +39,6 @@ void handle(FILE *fp)
 	char sd[LEN] = {'\0'};
 	char source[LEN] = {'\0'};
 	char el[LEN] = {'\0'};
-	char *record;
 	char lch = 0;
 
 	while ((fgets(str, LEN, fp)) != NULL)
@@ -57,7 +56,6 @@ void handle(FILE *fp)
 			else
 			{
 				space[j + 1] = '\0';
-				record = str + i;
 				break;
 			}
 		}
@@ -76,7 +74,7 @@ void handle(FILE *fp)
 			}
 		}
 
-		strcpy(fs, record);
+		strcpy(fs, str);
 		get_first_word(fs);
 		if (strcmp(fs, "while") == 0 || strcmp(fs, "if") == 0 || strcmp(fs, "for") == 0 || strcmp(fs, "switch") == 0 || strcmp(fs, "else") == 0)
 		{
